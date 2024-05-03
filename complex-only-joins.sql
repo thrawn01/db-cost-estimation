@@ -1,4 +1,4 @@
-\set aoffset random(1, 1000000)
+\set aoffset random(1, 200000)
 
 SELECT p.*,
        array_to_string(array_agg(dc.name), ',')      AS discount_codes,

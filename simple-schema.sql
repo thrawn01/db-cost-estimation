@@ -17,7 +17,7 @@ CREATE TABLE products
     length         DECIMAL(10, 2),
     width          DECIMAL(10, 2),
     height         DECIMAL(10, 2),
-    is_available   BOOLEAN        NOT NULL DEFAULT TRUE,
+    is_available   BOOLEAN        NOT NULL DEFAULT FALSE,
     created_at     TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at     TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

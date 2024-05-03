@@ -10,7 +10,7 @@ CREATE TABLE products
 (
     id           SERIAL PRIMARY KEY,
     name         VARCHAR(255)   NOT NULL,
-    description  TEXT,
+    description  VARCHAR(500)   NOT NULL,
     sku          VARCHAR(50)    NOT NULL,
     price        DECIMAL(10, 2) NOT NULL,
     cost         DECIMAL(10, 2) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE products
     length       DECIMAL(10, 2),
     width        DECIMAL(10, 2),
     height       DECIMAL(10, 2),
-    is_available BOOLEAN        NOT NULL DEFAULT TRUE,
+    is_available BOOLEAN        NOT NULL DEFAULT FALSE,
     created_at   TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at   TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -27,7 +27,7 @@ CREATE TABLE categories
 (
     id          SERIAL PRIMARY KEY,
     name        VARCHAR(100) NOT NULL,
-    description TEXT,
+    description VARCHAR(500) NOT NULL,
     product_id  INTEGER      NOT NULL,
     created_at  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -66,23 +66,13 @@ CREATE TABLE suppliers
 (
     id               SERIAL PRIMARY KEY,
     name             VARCHAR(100) NOT NULL,
-    description      TEXT,
+    description      VARCHAR(500) NOT NULL,
     back_order_count INTEGER      NOT NULL,
     address          VARCHAR(255),
     phone            VARCHAR(20),
     email            VARCHAR(100),
     created_at       TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at       TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE product_reviews
-(
-    id         SERIAL PRIMARY KEY,
-    product_id INTEGER   NOT NULL,
-    rating     INTEGER   NOT NULL,
-    review     TEXT,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX idx_discount_codes_product_id ON discount_codes (product_id);

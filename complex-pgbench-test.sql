@@ -1,4 +1,4 @@
-\set aoffset random(1, 2000000)
+\set aoffset random(1, 1000000)
 \set alimit random(1, 100)
 
 SELECT
